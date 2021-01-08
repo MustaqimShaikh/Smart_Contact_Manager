@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="normal/base::layout(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <title>User Dashboard</title>
+</head>
+<body>
+<section>
+    <h1>Welcome user to Dashboar..,</h1><br>
+    <h2>this is your private dashboard..!</h2>
+
+    <h1>UserName : <span th:text="${user.name}"></span></h1>
+    <h1>User Email : <spna th:text="${user.email}"></spna></h1>
+    <h1><a th:href="@{/logout}" href="#">Logout</a></h1>
+</section>
+
+</body>
+</html>
+

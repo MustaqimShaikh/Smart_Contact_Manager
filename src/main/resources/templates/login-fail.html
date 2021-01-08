@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::layout(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <title>Login failed</title>
+</head>
+<body>
+<section>
+    <h1>Something went wrong...!</h1><br>
+    <h2>Your Login failed...!</h2>
+    <div class="container">
+
+        <a th:href="@{/signin}" href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Try again..!</a>
+
+    </div>
+
+
+</section>
+
+</body>
+</html>
