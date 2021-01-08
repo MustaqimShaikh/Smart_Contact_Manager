@@ -29,8 +29,8 @@ public class SearchController {
         System.out.println(query);
 
         User user = this.userRepository.getUserByUserName(principal.getName());
-        List<Contact> contact = this.contactRepository.findByNameContainingAndUser(query, user);
+        List<Contact> contacts = this.contactRepository.findByNameContainingAndUser(query, user);
 
-        return ResponseEntity.ok(contact);
+        return ResponseEntity.ok(contacts);
     }
 }
