@@ -43,7 +43,8 @@
                 </div>
             </div>
 
-            <table class="table">
+            <div class="table-responsive">
+            <table class="table table-hover">
                 <thead class="thead-dark text-center">
                 <tr>
                     <th scope="col">C-ID</th>
@@ -106,6 +107,7 @@
 
                 </tbody>
             </table>
+            </div>
 
             <nav aria-label="Page navigation example">
                 <ul class="pagination">
@@ -126,6 +128,13 @@
 
 
     </div>
+
+    <script>
+        $(document).ready(() => {
+        $('.item').removeClass('active');
+        $("#contacts-link").addClass("active");
+        });
+    </script>
 
 </section>
 
