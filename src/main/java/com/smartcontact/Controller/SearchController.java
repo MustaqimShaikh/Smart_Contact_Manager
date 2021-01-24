@@ -29,7 +29,7 @@ public class SearchController {
         System.out.println(query);
 
         User user = this.userRepository.getUserByUserName(principal.getName());
-        List<Contact> contact = this.contactRepository.findByNameContainingAndUser(query, user);
+        List<Contact> contact = this.contactRepository.findByFirstNameContainingAndUser(query, user);
 
         return ResponseEntity.ok(contact);
     }
