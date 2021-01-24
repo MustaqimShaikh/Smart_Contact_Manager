@@ -6,12 +6,34 @@
 </head>
 <body>
 <section>
+
+    <!--<div class="container">
+
+        <div class="card">
+            <div class="card body my-5">
+                <div class="container text-center">
+
+                    <img src="" style="height : 200px; width : 200px;" class="my" alt="">
+                </div>
+
+            </div>
+        </div>
+    </div>-->
+
+
     <h1>Welcome user to Dashboar..,</h1><br>
     <h2>this is your private dashboard..!</h2>
 
     <h1>UserName : <span th:text="${user.name}"></span></h1>
     <h1>User Email : <spna th:text="${user.email}"></spna></h1>
     <h1><a th:href="@{/logout}" href="#">Logout</a></h1>
+
+    <script>
+       $(document).ready(()=> {
+        $(".item").removeClass("active")
+        $("#home-link").addClass("active")
+       });
+    </script>
 </section>
 
 </body>
