@@ -33,93 +33,101 @@
 
             <div class="search-container my-3">
 
-                <input onkeyup="search()" id="search-input" type="text" class="form-control" placeholder="Search Your Contacts" />
+                <input onkeyup="search()" id="search-input" type="text" class="form-control"
+                       placeholder="Search Your Contacts"/>
 
                 <div class="search-result">
                     <!--result come this field-->
                 </div>
             </div>
 
-            <table class="table">
-                <thead class="thead-dark text-center">
-                <tr>
-                    <th scope="col">C-ID</th>
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead class="thead-dark text-center">
+                    <tr>
+                        <th scope="col">C-ID</th>
 
-                    <th scope="col">FirstName</th>
-                    <th scope="col">LastName</th>
-                    <th scope="col">Phone</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Work</th>
-                    <th scope="col">Action</th>
-                </tr>
-                </thead>
-
-
-                <tbody>
-                <tr th:each="c : ${contacts}" class="text-left">
-                    <th scope="row" th:text="${'SCM20'+c.cId}">1</th>
-
-                    <td>
-                        <img src="" class="my_profile_picture" th:src="@{'/img/'+${c.image}}" alt="profile photo">
-
-                        <a href="#" th:href="@{'/user/'+${c.cId}+'/contact'}">
-                            <span th:text="${c.firstName}"></span>
-
-                        </a>
-
-                    </td>
-
-                    <td th:text="${c.secondName}">Otto</td>
-                    <td th:text="${c.phone}">@mdo</td>
-                    <td th:text="${c.email}">Mark</td>
-                    <td th:text="${c.work}">Otto</td>
-
-                    <td>
-                        <!--<button class="btn btn-danger btn-sm">Delete</button>
-                        <button class="btn btn-primary btn-sm">Update</button>-->
-
-                       <!-- <form method="post" th:action="@{'/user/update-contact/'+${c.cId}}" >
-                         &lt;!&ndash; <button class="btn btn-primary" type="submit">Update</button>&ndash;&gt;
-
-                        </form>-->
-
-                        <!--<a method="post" th:action="@{'/user/update-contact/'+${c.cId}}"  type="submit" class="btn btn-primary" href="#" role="button">Update</a>
-
-                        <a class="mt-3" method="get" th:onclick="|deleteContact(${c.cId})|" class="btn btn-danger" href="#" role="button">Delete</a>-->
-                       <!-- <a methods="get" href="#" th:onclick="|deleteContact(${c.cId})|" class="fas fa-user-times btn btn-danger"></a>-->
-
-                        <form method="post" th:action="@{'/user/update-contact/'+${c.cId}}" >
-                        <button href="#" type="submit" class="fas fa-user-edit btn-primary" role="button"> </button>
-
-                        </form>
-                        <button  href="#" class="fas fa-trash-alt btn-danger" th:onclick="|deleteContact(${c.cId})|" role="button"> </button>
+                        <th scope="col">FirstName</th>
+                        <th scope="col">LastName</th>
+                        <th scope="col">Phone</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Work</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                    </thead>
 
 
+                    <tbody>
+                    <tr th:each="c : ${contacts}" class="text-left">
+                        <th scope="row" th:text="${'SCM20'+c.cId}">1</th>
+
+                        <td>
+                            <img src="" class="my_profile_picture" th:src="@{'/img/'+${c.image}}" alt="profile photo">
+
+                            <a href="#" th:href="@{'/user/'+${c.cId}+'/contact'}">
+                                <span th:text="${c.firstName}"></span>
+
+                            </a>
+
+                        </td>
+
+                        <td th:text="${c.secondName}">Otto</td>
+                        <td th:text="${c.phone}">@mdo</td>
+                        <td th:text="${c.email}">Mark</td>
+                        <td th:text="${c.work}">Otto</td>
+
+                        <td>
+                            <!--<button class="btn btn-danger btn-sm">Delete</button>
+                            <button class="btn btn-primary btn-sm">Update</button>-->
+
+                            <!-- <form method="post" th:action="@{'/user/update-contact/'+${c.cId}}" >
+                              &lt;!&ndash; <button class="btn btn-primary" type="submit">Update</button>&ndash;&gt;
+
+                             </form>-->
+
+                            <!--<a method="post" th:action="@{'/user/update-contact/'+${c.cId}}"  type="submit" class="btn btn-primary" href="#" role="button">Update</a>
+
+                            <a class="mt-3" method="get" th:onclick="|deleteContact(${c.cId})|" class="btn btn-danger" href="#" role="button">Delete</a>-->
+                            <!-- <a methods="get" href="#" th:onclick="|deleteContact(${c.cId})|" class="fas fa-user-times btn btn-danger"></a>-->
+
+                            <form method="post" th:action="@{'/user/update-contact/'+${c.cId}}">
+                                <button href="#" type="submit" class="fas fa-user-edit btn-primary"
+                                        role="button"></button>
+
+                            </form>
+                            <button href="#" class="fas fa-trash-alt btn-danger" th:onclick="|deleteContact(${c.cId})|"
+                                    role="button"></button>
 
 
+                        </td>
+                    </tr>
 
-                    </td>
-                </tr>
+                    </tbody>
+                </table>
 
-                </tbody>
-            </table>
+            </div>
+
 
             <nav aria-label="Page navigation example">
                 <ul class="pagination">
 
-                    <li th:if="${currentPage != 0}" class="page-item"><a th:href="@{'/user/show-contacts/'+${currentPage-1}}" class="page-link" href="#">Previous</a></li>
+                    <li th:if="${currentPage != 0}" class="page-item"><a
+                            th:href="@{'/user/show-contacts/'+${currentPage-1}}" class="page-link" href="#">Previous</a>
+                    </li>
 
-                    <li th:classappend="${currentPage==i-1 ? 'active' : ''}" th:each="i : ${#numbers.sequence(1,totalPages)}" class="page-item">
+                    <li th:classappend="${currentPage==i-1 ? 'active' : ''}"
+                        th:each="i : ${#numbers.sequence(1,totalPages)}" class="page-item">
                         <a th:href="@{'/user/show-contacts/'+${i-1}}" class="page-link" href="#">
                             <spna th:text="${i}"></spna>
                         </a>
                     </li>
 
-                    <li th:if="${currentPage+1 != totalPages}" class="page-item"><a th:href="@{'/user/show-contacts/'+${currentPage+1}}" class="page-link" href="#">Next</a></li>
+                    <li th:if="${currentPage+1 != totalPages}" class="page-item"><a
+                            th:href="@{'/user/show-contacts/'+${currentPage+1}}" class="page-link" href="#">Next</a>
+                    </li>
                 </ul>
             </nav>
         </div>
-
 
 
     </div>
