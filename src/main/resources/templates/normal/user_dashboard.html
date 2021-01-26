@@ -6,6 +6,16 @@
 </head>
 <body>
 <section>
+    <!--message box-->
+    <div th:if="${session.message}" class="container mt-3">
+
+        <div th:classappend="${'alert-'+session.message.type}" class="alert text-center" role="alert">
+
+            <span th:text="${session.message.content}"></span>
+
+        </div>
+        <th:block th:text="${#session.removeAttribute('message')}"></th:block>
+    </div>
 
     <!--<div class="container">
 
